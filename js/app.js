@@ -30,7 +30,10 @@
  */
 let navbar = document.querySelector(".navbar__list");
 
-
+/**
+ * @type {Function} 
+ * @description used to store the timeout for navbar on scroll hide
+ */
 let timer = null
 
 /**
@@ -62,7 +65,9 @@ let scrollTopBtn = document.querySelector(".scrollToTop");
  *
 */
 
-
+/**
+ * function that handles visibility of the navbar on scroll
+ */
 function handleNavBarVisibility() {
     navbar.classList.remove("hide")
 }
