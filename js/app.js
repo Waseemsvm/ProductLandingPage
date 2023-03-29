@@ -25,6 +25,13 @@
  *
 */
 
+/**
+ * @type {HTMLElement[]} - navbar of the document
+ */
+let navbar = document.querySelector(".navbar__list");
+
+
+let timer = null
 
 /**
  * @type {HTMLElement[]} - ilst of all the sections in the main 
@@ -54,6 +61,11 @@ let scrollTopBtn = document.querySelector(".scrollToTop");
  * Start Helper Functions
  *
 */
+
+
+function handleNavBarVisibility() {
+    navbar.classList.remove("hide")
+}
 
 /**
  * @description handles Scroll to top funcationality
@@ -127,6 +139,16 @@ document.onscroll = function (e) {
     sectionsInViewPort[0]?.classList.add('active');
 
     handleScrollToTopBtn();
+
+    navbar.classList.add("hide")
+
+
+    if (timer != null) {
+        clearTimeout(timer)
+    }
+    timer = setTimeout(handleNavBarVisibility, 500)
+
+
 }
 
 /**
