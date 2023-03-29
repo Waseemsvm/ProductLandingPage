@@ -44,10 +44,37 @@ let myList = document.createElement("ul");
 let list = document.querySelector("#navbar__list");
 
 /**
+ * @type { HTMLElement } - scroll to top button 
+ */
+
+let scrollTopBtn = document.querySelector(".scrollToTop");
+
+/**
  * End Global Variables
  * Start Helper Functions
  *
 */
+
+/**
+ * @description handles Scroll to top funcationality
+ */
+
+function backToTop() {
+    document.documentElement.scrollIntoView({ behavior: "smooth" })
+}
+
+
+/**
+ * @description handles the visibility of scrollToTop button
+ */
+function handleScrollToTopBtn() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        scrollTopBtn.classList.add("showScrollToTop");
+    } else {
+        scrollTopBtn.classList.remove("showScrollToTop");
+    }
+}
+
 
 /**
  * @description check if the given HTMLElement is in the view port
@@ -57,7 +84,6 @@ let list = document.querySelector("#navbar__list");
 function isInViewPort(element) {
     const rect = element.getBoundingClientRect();
     return (
-        // rect.top >= 0 && rect.left >= 0 && rect.right <= window.innerWidth && rect.bottom <= window.innerHeight
         rect.top >= 0 && rect.top <= window.innerHeight
     )
 }
@@ -71,6 +97,9 @@ function generateNavContent() {
         let listitem = document.createElement("li")
         let link = document.createElement("a");
         link.href = "#" + section.id
+
+        // Scroll to anchor ID using scrollTO event
+        // Scroll to section on link click
         link.onclick = oEvent => {
             oEvent.preventDefault();
             section.scrollIntoView({ behavior: "smooth" });
@@ -93,7 +122,11 @@ document.onscroll = function (e) {
         section.classList.remove('active')
         if (isInViewPort(section)) sectionsInViewPort.push(section);
     })
+
+    // Add class 'active' to section when near top of viewport
     sectionsInViewPort[0]?.classList.add('active');
+
+    handleScrollToTopBtn();
 }
 
 /**
@@ -103,15 +136,8 @@ document.onscroll = function (e) {
 */
 
 // build the nav
-
+// Build menu
 generateNavContent();
-
-
-// Add class 'active' to section when near top of viewport
-
-
-// Scroll to anchor ID using scrollTO event
-
 
 /**
  * End Main Functions
@@ -119,9 +145,11 @@ generateNavContent();
  *
 */
 
-// Build menu
 
-// Scroll to section on link click
+
+
+
+
 
 
 
