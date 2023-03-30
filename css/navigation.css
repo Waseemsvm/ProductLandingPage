@@ -1,0 +1,49 @@
+@media screen and (max-width: 768px) {
+  .icon {
+    display: block;
+  }
+  .main__hero h1 {
+    margin-bottom: 0;
+  }
+  .navbar__menu .navbar__list {
+    display: none;
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background-color: aliceblue;
+  }
+
+  .navbar__list.hide {
+    display: none;
+  }
+
+  .showNavbar {
+    display: flex;
+  }
+
+  .navbar__menu ul > li {
+    margin-right: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .navbar__menu a {
+    color: rgb(7, 1, 70);
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+  }
+
+  .navbar__menu a.icon {
+    display: block;
+    text-align: right;
+  }
+
+  /* .navbar__menu a:hover {
+    background-color: black;
+    color: white;
+  } */
+}

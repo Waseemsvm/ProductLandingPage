@@ -1,3 +1,4 @@
+@import url("./navigation.css");
 /*
  *
  * CSS written based on SMACSS architecture.
@@ -65,6 +66,11 @@ section {
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
+
+.icon {
+  display: none;
+}
+
 .navbar__menu ul {
   transition: all;
   transition-duration: 0.5s;
@@ -73,10 +79,10 @@ section {
   text-align: right;
 }
 
-.navbar__menu .hide {
+.navbar__menu.hide {
   transition: all;
   transition-duration: 1s;
-  display: none;
+  display: none !important;
 }
 
 .navbar__menu li {

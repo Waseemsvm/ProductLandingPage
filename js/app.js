@@ -28,7 +28,7 @@
 /**
  * @type {HTMLElement[]} - navbar of the document
  */
-let navbar = document.querySelector(".navbar__list");
+let navbar = document.querySelector(".navbar__menu");
 
 /**
  * @type {Function} 
@@ -65,11 +65,31 @@ let scrollTopBtn = document.querySelector(".scrollToTop");
  *
 */
 
+
+let navbarmobile = document.querySelector(".navbar__menu .navbar__list");
+
+function myFunction() {
+    if (navbarmobile.style.display == 'block') {
+        navbarmobile.style.display = 'none';
+    } else {
+        navbarmobile.style.display = 'block';
+    }
+}
+
+// window.onclick = function (event) {
+//     if (event.target == modal) {
+//         modal.style.display = "none";
+//     }
+// }
+
 /**
  * function that handles visibility of the navbar on scroll
  */
 function handleNavBarVisibility() {
-    navbar.classList.remove("hide")
+    navbar.classList.remove("hide");
+    if (document.documentElement.clientWidth <= 768) {
+        document.querySelector(".navbar__menu").classList.remove("hide");
+    }
 }
 
 /**
@@ -119,6 +139,9 @@ function generateNavContent() {
         // Scroll to section on link click
         link.onclick = oEvent => {
             oEvent.preventDefault();
+            if (document.documentElement.clientWidth <= 768) {
+                myFunction()
+            }
             section.scrollIntoView({ behavior: "smooth" });
         }
         link.classList.add("menu__link");
@@ -146,6 +169,10 @@ document.onscroll = function (e) {
     handleScrollToTopBtn();
 
     navbar.classList.add("hide")
+
+    if (document.documentElement.clientWidth <= 768) {
+        document.querySelector(".navbar__menu").classList.add("hide")
+    }
 
 
     if (timer != null) {
