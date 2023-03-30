@@ -2,6 +2,7 @@
 
 The LandingPage project that demonstrates efficient use of **dom manipulation**.
 **Dynamic insertion** of navigation items depending on the sections inserted.
+Shows the use of append, appendChild, innerHtml, scrollTo... properties, methods...
 
 ## Comments
 
