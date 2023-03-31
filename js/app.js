@@ -121,7 +121,7 @@ function handleScrollToTopBtn() {
 function isInViewPort(element) {
     const rect = element.getBoundingClientRect();
     return (
-        rect.top >= 0 || rect.bottom > 0
+        rect.top > 0 || rect.bottom >= 50
     )
 }
 
