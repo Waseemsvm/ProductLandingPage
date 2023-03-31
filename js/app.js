@@ -121,7 +121,7 @@ function handleScrollToTopBtn() {
 function isInViewPort(element) {
     const rect = element.getBoundingClientRect();
     return (
-        rect.top >= 0 && rect.top <= window.innerHeight
+        rect.top >= 0 || rect.bottom > 0
     )
 }
 
@@ -149,7 +149,7 @@ function generateNavContent() {
         listitem.appendChild(link);
         myList.appendChild(listitem)
     })
-
+    myList.childNodes[0]?.classList.add("active")
     list.append(...myList.childNodes)
 }
 
@@ -164,7 +164,15 @@ document.onscroll = function (e) {
     })
 
     // Add class 'active' to section when near top of viewport
-    sectionsInViewPort[0]?.classList.add('active');
+    let activeSection = sectionsInViewPort[0];
+    if (activeSection) {
+        activeSection.classList.add('active');
+        document.querySelectorAll('.navbar__list li')?.forEach(l => {
+            l.classList.remove('active')
+        })
+        document.querySelector(`a[href='#${sectionsInViewPort[0].id}']`).parentElement.classList.add('active')
+    }
+
 
     handleScrollToTopBtn();
 

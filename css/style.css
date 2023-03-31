@@ -89,6 +89,15 @@ section {
   display: inline-block;
 }
 
+.navbar__menu .active {
+  background-color: #000;
+  color: #fff;
+}
+
+.navbar__menu .active a {
+  color: #fff;
+}
+
 .navbar__menu .menu__link {
   display: block;
   padding: 1em;
@@ -222,7 +231,7 @@ section.active {
   background: rgb(0, 0, 0);
   background: linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.5) 0%,
     rgba(0, 0, 0, 0) 100%
   );
 }
